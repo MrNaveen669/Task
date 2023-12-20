@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration and Login</title>
+    
+     <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container" id="registrationContainer">
+        <h2>User Registration</h2>
+        <div id="registrationError" class="error-message"></div>
+        <input type="text" id="regUsername" placeholder="Username">
+        <input type="password" id="regPassword" placeholder="Password">
+        <button onclick="registerUser()">Register</button>
+    </div>
+
+    <div class="container" id="loginContainer" style="display: none;">
+        <h2>User Login</h2>
+        <div id="loginError" class="error-message"></div>
+        <input type="text" id="loginUsername" placeholder="Username">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button onclick="loginUser()">Login</button>
+    </div>
+
+    <script>
+        function registerUser() {
+            var username = document.getElementById("regUsername").value;
+            var password = document.getElementById("regPassword").value;
+
+            // Perform validation (you may want to add more robust validation)
+            if (!username || !password) {
+                document.getElementById("registrationError").innerHTML = "Please fill in all fields.";
+                return;
+            }
+
+            // Perform registration logic (this is where you would communicate with your server)
+            alert("User registered successfully!");
+            // You may want to redirect the user to the login page or automatically log them in.
+
+            // For this example, let's show the login container after registration
+            document.getElementById("registrationContainer").style.display = "none";
+            document.getElementById("loginContainer").style.display = "block";
+        }
+
+        function loginUser() {
+            var username = document.getElementById("loginUsername").value;
+            var password = document.getElementById("loginPassword").value;
+
+            // Perform validation (you may want to add more robust validation)
+            if (!username || !password) {
+                document.getElementById("loginError").innerHTML = "Please fill in all fields.";
+                return;
+            }
+
+            // Perform login logic (this is where you would communicate with your server)
+            alert("Login successful!");
+            // You may want to redirect the user to the home page or another secured area.
+        }
+    </script>
+</body>
+</html>
